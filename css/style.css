@@ -1,0 +1,579 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 100%;
+    letter-spacing: -0.75px;
+}
+a{
+    text-decoration: none;
+    color: #333;
+    /* 모든 태그에 폰트를 적용해도 a 태그에는 직접 한번 더 넣어줘야 함 */
+    font-family: 'Noto Sans KR', sans-serif;
+}
+li{
+    list-style: none;
+}
+.w100{
+    width: 100%;
+}
+.w1200{
+    width: 1200px;
+    margin: 0 auto;
+}
+.common_img{
+    background-image: url(../img/sp_common.png);
+}
+
+
+/* header */
+.head_wrap{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 0;
+}
+.head_wrap>h1>a{
+    display: block;
+    width: 155px;
+    height: 35px;
+}
+.head_wrap>ul{
+    display: flex;
+    gap: 20px;
+}
+.location{
+    padding-right: 100px;
+    border-bottom: 1px solid black;
+}
+.location>a{
+    display: block;
+    padding: 0 0 5px 5px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #111;
+}
+.arrow{
+    display: inline-block;
+    width: 20px;
+    height: 18px;
+    background-position: -163px 0;
+    margin-top: 5px;
+}
+
+
+/* head_ul */
+.head_wrap>ul a:not(.lang){
+    font-size: 14px;
+    color: #111;
+}
+.lang{
+    display: block;
+    width: 60px;
+    height: 27px;
+    border: 1px solid #ddd;
+    padding-left: 13px;
+    font-size: 12px;
+    line-height: 24px;
+    border-radius: 14px;
+    color: #888;
+    position: relative;
+}
+.lang::after{
+    content: "";
+    display: block;
+    width: 6px;
+    height: 6px;
+    border-right: 1px solid #888;
+    border-bottom: 1px solid #888;
+    position: absolute;
+    top: 7px;
+    right: 10px;
+    transform: rotate(45deg);
+}
+
+
+/* nav */
+nav{
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    border-bottom: 1px solid #ddd;
+    background-color: #fff;
+}
+nav>ul{
+    display: flex;
+    padding: 10px 0;
+}
+nav>ul>li{
+    padding-right: 120px;
+}
+nav>ul>li.nav_more{
+    width: 50px;
+    font-size: 18px;
+    padding-right: 0;
+    cursor: pointer;
+    position: relative;
+}
+nav>ul>li.nav_more::after{
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-right: 2px solid #000;
+    border-bottom: 2px solid #000;
+    transform: rotate(45deg);
+    position: absolute;
+    top: 25%;
+    right: -30%;
+}
+nav>ul>li>a{
+    font-size: 18px;
+    color: #111;
+    position: relative;
+}
+/* ::after 가상 선택자
+   => 별로 중요하지 않고, 없어도 되지만 있으면 좀 더 효율적일 때 써서 넣음 */
+nav>ul>li>a::after{
+    /* 애프터에는 컨텐트가 반드시 들어가야 함 */
+    content: "";
+    display: block;
+    width: 0;
+    height: 2px;
+    background-color: #111;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: 0.3s;
+}
+nav>ul>li>a:hover::after{
+    width: 100%;
+}
+
+
+/* 더보기 박스 */
+#more_box{
+    display: flex;
+    justify-content: space-evenly;
+}
+.more_wrap{
+    height: 0;
+    background-color: #fff;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    overflow: hidden;
+}
+.sub_tit{
+    display: block;
+    font-size: 17px;
+    padding-bottom: 30px;
+    color: #000;
+}
+.sub_menu{
+    display: block;
+    font-size: 15px;
+    padding-bottom: 10px;
+    color: #555;
+}
+
+
+/* 1st section */
+.swiper{
+    width: 100%;
+    height: 100%;
+}
+.mySwiper .swiper-slide{
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.mySwiper .swiper-slide>img{
+    display: block;
+    width: 100%;
+    height: 495px;
+    object-fit: cover;
+}
+.mySwiper>.swiper_button_next{
+    width: 45px;
+    height: 45px;
+    border-right: 1px solid #000;
+    border-bottom: 1px solid #000;
+    transform: rotate(-45deg);
+    position: absolute;
+    z-index: 10;
+    right: 5%;
+    top: 45%;
+}
+.mySwiper>.swiper_button_prev{
+    width: 45px;
+    height: 45px;
+    border-left: 1px solid #000;
+    border-bottom: 1px solid #000;
+    transform: rotate(45deg);
+    position: absolute;
+    z-index: 10;
+    left: 5%;
+    top: 45%;
+}
+.pagination{
+    width: 100px;
+    height: 42px;
+    font-size: 18px;
+    display: flex;
+    color: #fff;
+    border-radius: 25px;
+    background-color: rgba(0,0,0,0.4);
+    position: absolute;
+    left: 50%;
+    bottom: 25px;
+    z-index: 999;
+}
+.pause{
+    width: 10px;
+    height: 15px;
+    background-image: url(../img/sp_common.png);
+    background-position: -164px -46px;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 999;
+}
+.play{
+    background-position-x: -184px;
+}
+
+
+/* 2nd section */
+.order_wrap{
+    display: flex;
+    padding: 50px 0;
+}
+.order_wrap>article{
+    padding: 20px;
+    padding-left: 70px;
+    flex: 1;
+}
+.delivery>div{
+    width: 52px;
+    height: 38px;
+    background-position: -195px -275px;
+}
+.takeout>div{
+    width: 40px;
+    height: 40px;
+    background-position: -262px -275px;
+}
+.quick>div{
+    width: 25px;
+    height: 42px;
+    background-image: url(../img/ico-quick3.png);
+}
+.order_wrap h2{
+    font-size: 42px;
+    font-weight: 300;
+}
+.delivery>h2{
+    color: #ff143c;
+}
+.takeout>h2{
+    color: #1382ff;
+}
+.order_wrap p{
+    color: #888;
+}
+.delivery span{
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background-color: #ff143c;
+    border-radius: 50%;
+    margin-left: 10px;
+    position: relative;
+}
+.delivery span::after{
+    width: 9px;
+    height: 9px;
+    content: "";
+    display: block;
+    /* 꺽쇠를 만들기 위해 보더를 이렇게 주고
+    transform: rotate를 이용하여 돌린 것 */
+    border-top: 2px solid #fff;
+    border-right: 2px solid #fff;
+    position: absolute;
+    transform: rotate(45deg);
+    top: 10px;
+    left: 7px;
+}
+.takeout span{
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background-color: #1382ff;
+    border-radius: 50%;
+    margin-left: 10px;
+    position: relative;
+}
+.takeout span::after{
+    width: 9px;
+    height: 9px;
+    content: "";
+    display: block;
+    border-top: 2px solid #fff;
+    border-right: 2px solid #fff;
+    position: absolute;
+    transform: rotate(45deg);
+    top: 10px;
+    left: 7px;
+}
+.quick span{
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background-color: #000;
+    border-radius: 50%;
+    margin-left: 10px;
+    position: relative;
+}
+.quick span::after{
+    width: 9px;
+    height: 9px;
+    content: "";
+    display: block;
+    border-top: 2px solid #fff;
+    border-right: 2px solid #fff;
+    position: absolute;
+    transform: rotate(45deg);
+    top: 10px;
+    left: 7px;
+}
+
+
+/* 3th section */
+.mania_wrap{
+    background-color: #f0f0f0;
+}
+.mania{
+    display: flex;
+    justify-content: space-between;
+    padding: 110px 0;
+}
+.mania h2{
+    font-size: 28px;
+    color: #111;
+    font-weight: 500;
+}
+.mania h2>span{
+    display: block;
+    color: #1382ff;
+    font-weight: 700;
+}
+.login{
+    width: 103px;
+    height: 43px;
+    margin-top: 30px;
+    color: #fff;
+    text-align: center;
+    line-height: 43px;
+    border-radius: 20px;
+    background-color: #000;
+}
+.mania>ul{
+    display: flex;
+    gap: 5px;
+    padding: 0 54px;
+}
+
+
+/* 4th section */
+.bnr_wrap{
+    position: relative;
+}
+.newSwiper>.swiper-wrapper{
+    padding: 80px 0;
+}
+.newSwiper .swiper-slide{
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.bnr_wrap>.swiper_button_next{
+    width: 35px;
+    height: 35px;
+    border-right: 1px solid #999;
+    border-bottom: 1px solid #999;
+    transform: rotate(-45deg);
+    position: absolute;
+    z-index: 10;
+    right: -30px;
+    top: 45%;
+}
+.bnr_wrap>.swiper_button_prev{
+    width: 35px;
+    height: 35px;
+    border-left: 1px solid #999;
+    border-bottom: 1px solid #999;
+    transform: rotate(45deg);
+    position: absolute;
+    z-index: 10;
+    left: -30px;
+    top: 45%;
+}
+
+
+/* footer top */
+footer{
+    border-top: 1px solid #ddd;
+}
+.f_top{
+    padding: 30px 0;
+    display: flex;
+    justify-content: space-between;
+}
+.footer_order{
+    display: flex;
+    align-items: baseline;
+}
+.footer_order>h1>a{
+    display: block;
+    width: 123px;
+    height: 26px;
+    background-position: 0 -47px;
+}
+.tell{
+    font-size: 30px;
+    font-weight: 600;
+    padding-left: 13px;
+}
+.strong{
+    font-weight: 700;
+}
+.f_top>div>ul{
+    display: flex;
+    gap: 15px;
+    padding: 10px 0 20px;
+}
+.footer_info>p{
+    font-size: 12px;
+    line-height: 1.75;
+    color: #888;
+}
+.notice{
+    margin-top: 12px;
+}
+.footer_cont select{
+    padding-right: 120px;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid #888;
+    font-size: 15px;
+    color: #888;
+}
+.down{
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+}
+.down p{
+    font-size: 13px;
+    padding-right: 15px;
+}
+.down>ul{
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+}
+.apple{
+    display: block;
+    width: 20px;
+    height: 25px;
+    background-position: -445px 0;
+}
+.android{
+    display: block;
+    width: 22px;
+    height: 24px;
+    background-position: -477px 0;
+}
+.footer_cont{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.footer_cont>ul{
+    display: flex;
+    opacity: 0.5;
+}
+.footer_cont>ul a{
+    display: block;
+    width: 25px;
+    height: 25px;
+}
+.bl{
+    background-position: -506px 0;
+}
+.in{
+    background-position: -531px 0;
+}
+.fb{
+    background-position: -559px 0;
+}
+.yt{
+    background-position: -584px 0;
+}
+.tw{
+    background-position: -619px 0;
+}
+
+
+/* footer bottom */
+.f_bot{
+    padding: 30px 0;
+    background-color: #f0f0f0;
+}
+.award_area>ul{
+    display: flex;
+    justify-content: space-between;
+}
+.award_area>ul>li{
+    display: flex;
+}
+.award_area>ul>li>p{
+    font-size: 11px;
+    padding-left: 7px;
+    color: #888;
+}
+.img1{
+    width: 37px;
+    height: 37px;
+}
+.img2{
+    width: 30px;
+    height: 40px;
+}
+.img3{
+    width: 41px;
+    height: 28px;
+}
+.img4{
+    width: 41px;
+    height: 28px;
+}
+.img5{
+    width: 45px;
+    height: 35px;
+}
+.img6{
+    width: 36px;
+    height: 38px;
+}
