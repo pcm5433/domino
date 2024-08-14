@@ -4,7 +4,7 @@
     <div style="text-align: left;"> 
     <br />
     <h2 style="border-bottom: 1px solid #d8dee4; color: #282d33;"> Clone Web </h2>  
-    <div style="font-weight: 700; font-size: 15px; text-align: left; color: #282d33;"> 도미노 피자 홈페이지를 클론하여 제작한 페이지입니다.<br />더 보기 → 자주하는 질문 페이지가 구현되어 있습니다. </div> 
+    <div style="font-weight: 700; font-size: 15px; text-align: left; color: #282d33;"> 도미노 피자 홈페이지를 클론하여 제작한 페이지입니다.<br /><b>더 보기 → 자주하는 질문</b> 페이지가 구현되어 있습니다. </div> 
     </div>
     <div style="text-align: left;">
     <br />
